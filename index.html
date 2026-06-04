@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Таїсія — перукар-стиліст | Jam Studio, Львів</title>
+<meta name="description" content="Таїсія — перукар-стиліст у Jam Studio, Львів. Жіночі та чоловічі стрижки, укладки, зачіски.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✂</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #FAF7F2;
+  --surface: #E8DFD3;
+  --border: #D4C5B0;
+  --text: #5A4A38;
+  --muted: #8B7355;
+  --white: #FFFFFF;
+  --font: 'Inter', -apple-system, system-ui, sans-serif;
+  --radius: 12px;
+  --radius-sm: 8px;
+  --shadow: 0 2px 16px rgba(90,74,56,0.06);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+/* ── Placeholder slots (видно, що треба заповнити) ── */
+.ph {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 6px; text-align: center;
+  background: repeating-linear-gradient(45deg, #EFE7DA, #EFE7DA 10px, #E8DFD3 10px, #E8DFD3 20px);
+  border: 1.5px dashed var(--border); color: var(--muted);
+  font-size: 0.8rem; padding: 16px; border-radius: var(--radius);
+}
+.ph small { font-size: 0.72rem; opacity: 0.8; }
+.ph-tag { font-style: italic; }
+
+/* ── Navigation ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(250,247,242,0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+nav .container {
+  display: flex; align-items: center; justify-content: space-between;
+  height: 64px;
+}
+.nav-logo { font-weight: 600; font-size: 1.1rem; color: var(--text); text-decoration: none; }
+.nav-links { display: flex; gap: 24px; list-style: none; }
+.nav-links a {
+  color: var(--muted); text-decoration: none; font-size: 0.875rem;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--text); }
+.nav-cta {
+  background: var(--text); color: var(--bg); border: none;
+  padding: 10px 20px; border-radius: var(--radius-sm);
+  font-family: var(--font); font-size: 0.875rem; font-weight: 500;
+  cursor: pointer; text-decoration: none; display: inline-block;
+  transition: opacity 0.2s;
+}
+.nav-cta:hover { opacity: 0.85; }
+
+/* ── Sections ── */
+section { padding: 100px 0; }
+section:nth-child(even) { background: var(--surface); }
+.section-label {
+  font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--muted); margin-bottom: 8px;
+}
+.section-title {
+  font-size: 2.25rem; font-weight: 600; line-height: 1.2;
+  margin-bottom: 16px; color: var(--text);
+}
+.section-subtitle { font-size: 1.05rem; color: var(--muted); max-width: 480px; }
+
+/* ── 1. HERO ── */
+.hero { padding-top: 164px; padding-bottom: 80px; min-height: 90vh; display: flex; align-items: center; }
+.hero .container { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+.hero-content { max-width: 480px; }
+.hero-name { font-size: 3rem; font-weight: 600; line-height: 1.1; margin-bottom: 12px; }
+.hero-role { font-size: 1.15rem; color: var(--muted); margin-bottom: 8px; }
+.hero-location { font-size: 0.95rem; color: var(--muted); display: flex; align-items: center; gap: 6px; margin-bottom: 32px; }
+.hero-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn-primary {
+  background: var(--text); color: var(--bg); border: none;
+  padding: 14px 28px; border-radius: var(--radius-sm);
+  font-family: var(--font); font-size: 0.95rem; font-weight: 500;
+  cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+  transition: opacity 0.2s;
+}
+.btn-primary:hover { opacity: 0.85; }
+.btn-outline {
+  background: transparent; color: var(--text); border: 1.5px solid var(--border);
+  padding: 14px 28px; border-radius: var(--radius-sm);
+  font-family: var(--font); font-size: 0.95rem; font-weight: 500;
+  cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+  transition: border-color 0.2s;
+}
+.btn-outline:hover { border-color: var(--text); }
+.hero-image { width: 100%; aspect-ratio: 4/5; }
+
+/* ── 2. PORTFOLIO ── */
+.portfolio-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 40px; }
+.portfolio-item { aspect-ratio: 4/5; }
+
+/* ── 3. SERVICES ── */
+.services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 40px; }
+.service-card {
+  background: var(--surface); border-radius: var(--radius);
+  padding: 32px 24px; text-align: center;
+}
+.service-icon { font-size: 2rem; margin-bottom: 12px; }
+.service-name { font-size: 1.05rem; font-weight: 600; margin-bottom: 4px; }
+.service-desc { font-size: 0.85rem; color: var(--muted); margin-bottom: 12px; }
+.service-price { font-size: 1.1rem; font-weight: 600; color: var(--muted); font-style: italic; }
+.service-duration { font-size: 0.8rem; color: var(--muted); }
+
+/* ── 4. PROCESS ── */
+.process-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px; }
+.process-video { aspect-ratio: 16/9; }
+
+/* ── 5. ABOUT ── */
+.about-grid { display: grid; grid-template-columns: 5fr 7fr; gap: 64px; margin-top: 40px; align-items: center; }
+.about-image { width: 100%; aspect-ratio: 3/4; }
+.about-text p { margin-bottom: 12px; font-size: 1rem; line-height: 1.7; }
+
+/* ── 6. REVIEWS ── */
+.reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px; }
+.review-card { aspect-ratio: 4/3; }
+
+/* ── 7. BOOKING ── */
+.booking-card {
+  background: var(--white); border-radius: var(--radius);
+  padding: 48px; box-shadow: var(--shadow); margin-top: 40px;
+  max-width: 700px;
+}
+.booking-card h3 { margin-bottom: 8px; font-size: 1.2rem; }
+.booking-card p { color: var(--muted); font-size: 0.9rem; margin-bottom: 20px; }
+.booking-embed { width: 100%; height: 320px; }
+
+/* ── 8. CONTACTS ── */
+.contacts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px; }
+.contact-card {
+  background: var(--white); border-radius: var(--radius);
+  padding: 32px; box-shadow: var(--shadow); text-align: center;
+}
+.contact-icon { font-size: 1.5rem; margin-bottom: 12px; }
+.contact-label { font-size: 0.8rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; }
+.contact-value { font-weight: 500; font-style: italic; color: var(--muted); }
+.schedule { margin-top: 40px; padding: 24px; background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow); text-align: center; }
+.schedule-grid { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-top: 12px; }
+.schedule-item { text-align: center; }
+.schedule-day { font-weight: 600; font-size: 0.9rem; }
+.schedule-time { color: var(--muted); font-size: 0.85rem; font-style: italic; }
+
+/* ── Footer ── */
+footer { padding: 40px 0; border-top: 1px solid var(--border); text-align: center; }
+footer p { font-size: 0.8rem; color: var(--muted); }
+footer .footer-tag { font-size: 0.75rem; margin-top: 4px; color: var(--border); }
+
+/* ── Responsive ── */
+@media (max-width: 1023px) {
+  .hero .container { grid-template-columns: 1fr; gap: 40px; }
+  .hero-content { max-width: 100%; }
+  .hero-image { max-width: 320px; }
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .about-grid { grid-template-columns: 1fr; gap: 32px; }
+  .about-image { max-width: 320px; }
+  .reviews-grid { grid-template-columns: 1fr; }
+  .process-grid { grid-template-columns: 1fr; }
+  .section-title { font-size: 1.75rem; }
+}
+
+@media (max-width: 639px) {
+  section { padding: 64px 0; }
+  .hero { padding-top: 120px; min-height: auto; }
+  .hero-name { font-size: 2rem; }
+  .nav-links { display: none; }
+  .portfolio-grid { grid-template-columns: 1fr; }
+  .services-grid { grid-template-columns: 1fr; }
+  .contacts-grid { grid-template-columns: 1fr; }
+  .section-title { font-size: 1.5rem; }
+  .booking-card { padding: 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+  <div class="container">
+    <a href="#" class="nav-logo">Таїсія</a>
+    <ul class="nav-links">
+      <li><a href="#portfolio">Портфоліо</a></li>
+      <li><a href="#services">Послуги</a></li>
+      <li><a href="#about">Про майстра</a></li>
+      <li><a href="#reviews">Відгуки</a></li>
+      <li><a href="#contacts">Контакти</a></li>
+    </ul>
+    <a href="#booking" class="nav-cta">Записатись</a>
+  </div>
+</nav>
+
+<!-- 1. HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <span class="section-label">Перукар-стиліст</span>
+      <h1 class="hero-name">Таїсія</h1>
+      <p class="hero-role">Жіночі та чоловічі стрижки, укладки, зачіски</p>
+      <p class="hero-location">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Jam Studio, Львів
+      </p>
+      <div class="hero-buttons">
+        <a href="#booking" class="btn-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          Записатись онлайн
+        </a>
+        <!-- TODO: вставити реальний Telegram Таїсії в href -->
+        <a href="#" class="btn-outline">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.49 8.22l-1.83 8.62c-.14.61-.5.76-1.01.47l-2.78-2.05-1.34 1.29c-.15.15-.28.27-.57.27l.2-2.83 5.16-4.66c.22-.2-.05-.31-.34-.11l-6.38 4.02-2.75-.86c-.6-.19-.61-.6.13-.89l10.74-4.14c.5-.18.93.12.77.89z"/></svg>
+          Написати в Telegram
+        </a>
+      </div>
+    </div>
+    <div class="hero-image ph">
+      <span class="ph-tag">📷 Фото Таїсії</span>
+      <small>портрет, вертикальний 4:5</small>
+    </div>
+  </div>
+</section>
+
+<!-- 2. PORTFOLIO -->
+<section id="portfolio">
+  <div class="container">
+    <span class="section-label">Портфоліо</span>
+    <h2 class="section-title">Роботи</h2>
+    <p class="section-subtitle">Кожен клієнт — індивідуальний підхід, врахування типу волосся, форми обличчя та побажань.</p>
+    <div class="portfolio-grid">
+      <div class="portfolio-item ph"><span class="ph-tag">📷 Робота 1</span><small>реальне фото</small></div>
+      <div class="portfolio-item ph"><span class="ph-tag">📷 Робота 2</span><small>реальне фото</small></div>
+      <div class="portfolio-item ph"><span class="ph-tag">📷 Робота 3</span><small>реальне фото</small></div>
+      <div class="portfolio-item ph"><span class="ph-tag">📷 Робота 4</span><small>реальне фото</small></div>
+      <div class="portfolio-item ph"><span class="ph-tag">📷 Робота 5</span><small>реальне фото</small></div>
+      <div class="portfolio-item ph"><span class="ph-tag">📷 Робота 6</span><small>реальне фото</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. SERVICES -->
+<section id="services">
+  <div class="container">
+    <span class="section-label">Послуги та ціни</span>
+    <h2 class="section-title">Що я роблю</h2>
+    <p class="section-subtitle">Прозорі ціни, якісні матеріали, індивідуальна консультація перед початком. <strong>Ціни треба уточнити в Таїсії.</strong></p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">💇‍♀️</div>
+        <div class="service-name">Жіноча стрижка</div>
+        <div class="service-desc">Моделювання форми, врахування типу волосся</div>
+        <div class="service-price">ціна — уточнити</div>
+        <div class="service-duration">тривалість — уточнити</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">💇‍♂️</div>
+        <div class="service-name">Чоловіча стрижка</div>
+        <div class="service-desc">Класика, fade, texturizing</div>
+        <div class="service-price">ціна — уточнити</div>
+        <div class="service-duration">тривалість — уточнити</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">✨</div>
+        <div class="service-name">Укладка</div>
+        <div class="service-desc">Вечірня, повсякденна, весільна</div>
+        <div class="service-price">ціна — уточнити</div>
+        <div class="service-duration">тривалість — уточнити</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🎨</div>
+        <div class="service-name">Фарбування</div>
+        <div class="service-desc">Однотонне, мелірування, складні техніки</div>
+        <div class="service-price">ціна — уточнити</div>
+        <div class="service-duration">тривалість — уточнити</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. PROCESS -->
+<section id="process">
+  <div class="container">
+    <span class="section-label">Процес</span>
+    <h2 class="section-title">Як я працюю</h2>
+    <p class="section-subtitle">За лаштунками — ритм, точність, увага до деталей.</p>
+    <div class="process-grid">
+      <div class="process-video ph"><span class="ph-tag">🎬 Відео стрижки</span><small>реальний ролик</small></div>
+      <div class="process-video ph"><span class="ph-tag">🎬 Відео укладки</span><small>реальний ролик</small></div>
+      <div class="process-video ph"><span class="ph-tag">🎬 Відео фарбування</span><small>реальний ролик</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. ABOUT -->
+<section id="about">
+  <div class="container">
+    <span class="section-label">Про майстра</span>
+    <div class="about-grid">
+      <div class="about-image ph"><span class="ph-tag">📷 Фото за роботою</span><small>вертикальний 3:4</small></div>
+      <div class="about-text">
+        <h2 class="section-title">Привіт, я Таїсія</h2>
+        <p class="ph ph-tag" style="aspect-ratio:auto; text-align:left; align-items:flex-start;">
+          Тут буде реальний текст про Таїсію: досвід, підхід, чому до неї повертаються.
+          <small>Біо напише Таїсія — досвід, цифри й деталі не вигадуються.</small>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. REVIEWS -->
+<section id="reviews">
+  <div class="container">
+    <span class="section-label">Відгуки</span>
+    <h2 class="section-title">Що кажуть клієнти</h2>
+    <p class="section-subtitle">Сюди додамо реальні відгуки — скріншоти з Instagram/Telegram або тексти від клієнтів.</p>
+    <div class="reviews-grid">
+      <div class="review-card ph"><span class="ph-tag">💬 Відгук 1</span><small>реальний клієнт</small></div>
+      <div class="review-card ph"><span class="ph-tag">💬 Відгук 2</span><small>реальний клієнт</small></div>
+      <div class="review-card ph"><span class="ph-tag">💬 Відгук 3</span><small>реальний клієнт</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. BOOKING -->
+<section id="booking" style="background: var(--bg);">
+  <div class="container">
+    <span class="section-label">Онлайн-запис</span>
+    <h2 class="section-title">Оберіть зручний час</h2>
+    <p class="section-subtitle">Календар синхронізується з графіком Таїсії. Оберіть послугу, дату, час — і отримайте підтвердження.</p>
+    <div class="booking-card">
+      <h3>📅 Записатись на стрижку чи укладку</h3>
+      <p>Оберіть послугу → зручну дату → час → залиште контакт</p>
+      <div class="booking-embed ph">
+        <span class="ph-tag">🔗 Тут буде вбудований віджет запису</span>
+        <small>Calendly / Google Calendar — підключається після створення акаунта</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. CONTACTS -->
+<section id="contacts" style="background: var(--surface);">
+  <div class="container">
+    <span class="section-label">Контакти</span>
+    <h2 class="section-title">Зв'язатись зі мною</h2>
+    <div class="contacts-grid">
+      <div class="contact-card">
+        <div class="contact-icon">📸</div>
+        <div class="contact-label">Instagram</div>
+        <!-- TODO: реальний Instagram -->
+        <div class="contact-value">додати реальний</div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon">💬</div>
+        <div class="contact-label">Telegram</div>
+        <!-- TODO: реальний Telegram -->
+        <div class="contact-value">додати реальний</div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon">📍</div>
+        <div class="contact-label">Де я працюю</div>
+        <!-- TODO: підтвердити адресу студії -->
+        <div class="contact-value">Jam Studio, Львів — уточнити адресу</div>
+      </div>
+    </div>
+    <div class="schedule">
+      <span class="section-label">Графік роботи</span>
+      <div class="schedule-grid">
+        <div class="schedule-item">
+          <div class="schedule-day">Дні роботи</div>
+          <div class="schedule-time">уточнити</div>
+        </div>
+        <div class="schedule-item">
+          <div class="schedule-day">Години</div>
+          <div class="schedule-time">уточнити</div>
+        </div>
+        <div class="schedule-item">
+          <div class="schedule-day">Вихідні</div>
+          <div class="schedule-time">уточнити</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>© Таїсія — перукар-стиліст. Jam Studio, Львів.</p>
+    <p class="footer-tag">Теплий мінімалізм · Якість · Естетика</p>
+  </div>
+</footer>
+
+</body>
+</html>
