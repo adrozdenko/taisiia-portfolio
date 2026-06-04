@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Тая · Перукар-стиліст — Jam Studio, Львів</title>
+<meta name="description" content="Тая — незалежний перукар-стиліст у Jam Studio, Львів. Редакційна естетика, індивідуальний підхід. Стрижки, фарбування, укладки.">
+<meta property="og:title" content="Тая · Перукар-стиліст">
+<meta property="og:description" content="Стрижки, фарбування, укладки · Jam Studio, Львів">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='88'>✂</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FAF6F1;
+  --surface:#F4EEE7;
+  --card:#FFFCF8;
+  --ink:#3B3228;
+  --text-muted:#6B5F56;
+  --text-faint:#8B7B73;
+  --line:#E8DCD0;
+  --accent:#C85A3A;
+  --accent-warm:#D89070;
+  --accent-soft:#E5C5B5;
+  --accent-fade:#F5E8E0;
+  --gold:#B8A068;
+  --white:#FFFFFF;
+  --serif-display:'Fraunces',Georgia,'Times New Roman',serif;
+  --serif-text:'Crimson Text','Garamond',Georgia,serif;
+  --sans:'DM Sans',-apple-system,system-ui,sans-serif;
+  --maxw:1200px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;font-size:16px;-webkit-text-size-adjust:100%;}
+body{
+  font-family:var(--sans);background:var(--bg);color:var(--ink);
+  line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  overflow-x:hidden;letter-spacing:.3px;
+}
+::selection{background:var(--accent-soft);color:var(--ink);}
+img{display:block;max-width:100%;height:auto;}
+a{color:inherit;text-decoration:none;}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 40px;}
+
+/* ── Typographic hierarchy ── */
+.eyebrow{
+  font-size:.68rem;font-weight:600;letter-spacing:.28em;text-transform:uppercase;
+  color:var(--accent);display:inline-flex;align-items:center;gap:12px;
+}
+.eyebrow::before{content:"";width:22px;height:1px;background:var(--accent);opacity:.7;}
+.display{font-family:var(--serif-display);font-weight:400;line-height:1.08;letter-spacing:-.02em;font-optical-sizing:auto;}
+.display em{font-style:italic;color:var(--accent);}
+h2.title{font-family:var(--serif-display);font-weight:400;font-size:clamp(2.2rem,5.2vw,3.8rem);line-height:1.1;letter-spacing:-.012em;}
+h3{font-family:var(--serif-text);font-weight:600;font-size:1.55rem;letter-spacing:-.01em;}
+.lede{font-family:var(--serif-text);font-size:1.08rem;color:var(--text-muted);max-width:52ch;margin-top:20px;line-height:1.75;}
+.ph{
+  display:inline-block;font-family:var(--sans);font-size:.82em;font-weight:500;
+  color:var(--accent);background:rgba(200,90,58,.06);
+  border:1px dashed var(--accent-soft);border-radius:3px;padding:.08em .48em;
+  letter-spacing:0;
+}
+
+/* ── Navigation ── */
+header{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .3s,border-color .3s;}
+header.scrolled{background:rgba(250,246,241,.92);backdrop-filter:saturate(130%) blur(12px);border-bottom:1px solid var(--line);}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px;}
+.brand{font-family:var(--serif-display);font-size:1.4rem;font-weight:400;letter-spacing:-.01em;text-decoration:none;display:flex;align-items:baseline;gap:8px;}
+.brand small{font-family:var(--sans);font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--text-faint);font-weight:600;}
+.menu{display:flex;gap:34px;list-style:none;}
+.menu a{font-size:.82rem;font-weight:500;color:var(--text-muted);text-decoration:none;position:relative;padding:4px 0;transition:color .2s;}
+.menu a::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:2px;background:var(--accent);transition:width .3s var(--ease);}
+.menu a:hover{color:var(--accent);}.menu a:hover::after{width:100%;}
+.book-btn{
+  font-family:var(--sans);font-size:.8rem;font-weight:600;letter-spacing:.03em;
+  background:var(--accent);color:var(--white);text-decoration:none;
+  padding:13px 26px;border-radius:100px;transition:transform .2s var(--ease),background .2s,box-shadow .2s;
+  display:inline-block;box-shadow:0 8px 20px -8px rgba(200,90,58,.25);
+}
+.book-btn:hover{transform:translateY(-2px);background:var(--accent-warm);box-shadow:0 12px 28px -10px rgba(200,90,58,.35);}
+
+/* ── Hero ── */
+.hero{padding:160px 0 80px;}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center;}
+.hero-name{font-size:clamp(3.8rem,10vw,7.2rem);margin:20px 0 0;font-weight:400;}
+.hero-sub{font-family:var(--serif-text);font-size:1.15rem;color:var(--text-muted);margin-top:24px;max-width:38ch;line-height:1.8;}
+.hero-loc{display:inline-flex;align-items:center;gap:10px;margin-top:32px;font-size:.95rem;color:var(--text-muted);}
+.hero-loc svg{flex:none;width:18px;height:18px;color:var(--accent);}
+.hero-cta{display:flex;gap:16px;flex-wrap:wrap;margin-top:42px;}
+.btn{
+  font-family:var(--sans);font-size:.9rem;font-weight:600;text-decoration:none;cursor:pointer;
+  display:inline-flex;align-items:center;gap:10px;padding:14px 30px;border-radius:100px;
+  transition:transform .2s var(--ease),background .2s,border-color .2s,color .2s,box-shadow .2s;
+  border:1.5px solid transparent;
+}
+.btn-fill{background:var(--accent);color:var(--white);box-shadow:0 8px 20px -8px rgba(200,90,58,.3);}
+.btn-fill:hover{background:var(--accent-warm);transform:translateY(-2px);box-shadow:0 12px 28px -10px rgba(200,90,58,.4);}
+.btn-ghost{border-color:var(--line);color:var(--ink);background:transparent;}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px);}
+.hero-figure{position:relative;max-width:100%;}
+.hero-figure img{width:100%;aspect-ratio:4/5.2;object-fit:cover;border-radius:8px 8px 92px 8px;background:var(--surface);box-shadow:0 16px 48px -16px rgba(0,0,0,.15);}
+.hero-figure .tag{
+  position:absolute;left:-22px;bottom:42px;background:var(--white);
+  padding:16px 24px;border-radius:8px;box-shadow:0 12px 32px -12px rgba(0,0,0,.2);
+  font-family:var(--serif-text);font-style:italic;font-size:1.08rem;color:var(--ink);
+}
+.hero-figure .tag b{display:block;font-family:var(--sans);font-style:normal;font-size:.65rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:4px;}
+.ticker{
+  margin-top:72px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  display:flex;flex-wrap:wrap;gap:10px 48px;padding:20px 0;
+  font-family:var(--serif-text);font-style:italic;font-size:1.12rem;color:var(--text-faint);
+}
+.ticker span{display:inline-flex;align-items:center;gap:48px;}
+.ticker span::after{content:"·";color:var(--accent);}
+
+/* ── Section shell ── */
+section{padding:110px 0;}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:48px;flex-wrap:wrap;margin-bottom:56px;}
+.sec-head .left{max-width:54ch;}
+
+/* ── Portfolio gallery ── */
+.gallery{display:grid;grid-template-columns:repeat(6,1fr);gap:16px;}
+.shot{position:relative;overflow:hidden;border-radius:8px;background:var(--surface);}
+.shot img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease);}
+.shot:hover img{transform:scale(1.07);}
+.shot figcaption{
+  position:absolute;left:16px;bottom:16px;z-index:2;color:var(--white);
+  font-size:.78rem;font-weight:600;letter-spacing:.05em;
+  text-shadow:0 2px 12px rgba(0,0,0,.6);opacity:0;transform:translateY(10px);
+  transition:opacity .3s .1s,transform .3s var(--ease);
+}
+.shot::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(59,50,40,.4),transparent 60%);opacity:0;transition:opacity .3s;}
+.shot:hover::after{opacity:1;}.shot:hover figcaption{opacity:1;transform:none;}
+.shot.tall{grid-column:span 2;grid-row:span 2;}
+.shot.wide{grid-column:span 4;}
+.shot.std{grid-column:span 2;}
+.shot.tall img,.shot.std img{aspect-ratio:4/5;}
+.shot.wide img{aspect-ratio:16/10;}
+
+/* ── Services (editorial list) ── */
+#services{background:var(--surface);}
+.menu-list{display:flex;flex-direction:column;}
+.srv{
+  display:grid;grid-template-columns:auto 1fr auto;align-items:baseline;gap:24px;
+  padding:32px 0;border-bottom:1px solid var(--line);transition:padding-left .25s var(--ease);
+}
+.srv:first-child{border-top:1px solid var(--line);}
+.srv:hover{padding-left:14px;}
+.srv .no{font-family:var(--serif-display);font-style:italic;color:var(--text-faint);font-size:1.1rem;font-weight:400;}
+.srv .body h3{font-family:var(--serif-text);font-weight:600;font-size:1.5rem;letter-spacing:-.008em;color:var(--ink);}
+.srv .body p{font-size:.96rem;color:var(--text-muted);margin-top:6px;}
+.srv .meta{text-align:right;white-space:nowrap;}
+.srv .meta .price{font-family:var(--serif-text);font-size:1.35rem;font-weight:600;color:var(--accent);}
+.srv .meta .dur{font-size:.82rem;color:var(--text-faint);margin-top:4px;}
+.note{margin-top:28px;font-size:.88rem;color:var(--text-faint);font-style:italic;}
+
+/* ── About ── */
+.about{display:grid;grid-template-columns:5fr 6fr;gap:72px;align-items:center;}
+.about-fig img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:8px 92px 8px 8px;background:var(--surface);box-shadow:0 16px 48px -16px rgba(0,0,0,.15);}
+.about-body .title{margin-bottom:28px;}
+.about-body p{font-family:var(--serif-text);font-size:1.08rem;line-height:1.85;color:var(--ink);margin-bottom:20px;}
+.about-body p.soft{color:var(--text-muted);}
+.signature{font-family:var(--serif-display);font-style:italic;font-size:1.85rem;color:var(--accent);margin-top:16px;font-weight:400;}
+
+/* ── Reviews ── */
+#reviews{background:var(--surface);}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+.rev{
+  background:var(--card);border:1px solid var(--line);border-radius:8px;padding:36px;
+  display:flex;flex-direction:column;gap:18px;min-height:220px;
+  transition:border-color .2s,box-shadow .2s;
+}
+.rev:hover{border-color:var(--accent-soft);box-shadow:0 8px 24px -12px rgba(200,90,58,.1);}
+.rev .stars{color:var(--accent);letter-spacing:4px;font-size:1rem;}
+.rev .quote{font-family:var(--serif-text);font-style:italic;font-size:1.1rem;line-height:1.6;color:var(--text-muted);}
+.rev .who{margin-top:auto;font-size:.85rem;color:var(--text-faint);}
+
+/* ── Booking panel ── */
+.book-panel{
+  background:linear-gradient(135deg,#3B3228 0%,#5B4A3D 100%);color:var(--white);border-radius:12px;
+  padding:clamp(40px,6vw,68px);display:grid;grid-template-columns:1.2fr 1fr;gap:56px;align-items:center;
+}
+.book-panel .eyebrow{color:var(--accent-soft);}
+.book-panel .eyebrow::before{background:var(--accent-soft);}
+.book-panel h2{font-family:var(--serif-display);font-weight:400;font-size:clamp(2rem,3.8vw,2.9rem);line-height:1.12;margin:20px 0;color:var(--white);}
+.book-panel p{color:#E5D9CC;font-family:var(--serif-text);font-size:1.04rem;line-height:1.75;max-width:44ch;}
+.book-slot{
+  background:rgba(255,255,255,.06);border:1px solid rgba(229,197,181,.3);border-radius:10px;
+  padding:36px;text-align:center;
+}
+.book-slot .big{font-family:var(--serif-text);font-style:italic;font-size:1.4rem;color:var(--accent-soft);}
+.book-slot p{color:#D5C9BC;font-size:.92rem;margin-top:12px;font-family:var(--serif-text);}
+.book-slot .btn-fill{margin-top:24px;background:var(--accent);color:var(--white);}
+.book-slot .btn-fill:hover{background:var(--accent-warm);}
+
+/* ── Contacts ── */
+.contacts{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.ct{
+  border:1px solid var(--line);border-radius:10px;padding:32px;background:var(--card);
+  transition:transform .25s var(--ease),border-color .25s,box-shadow .25s;
+  text-decoration:none;display:block;
+}
+.ct:hover{transform:translateY(-4px);border-color:var(--accent);box-shadow:0 16px 40px -20px rgba(200,90,58,.2);}
+.ct .ic{width:44px;height:44px;border-radius:9px;background:var(--accent-fade);display:flex;align-items:center;justify-content:center;color:var(--accent);margin-bottom:18px;font-size:1.2rem;}
+.ct .lbl{font-size:.7rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--text-faint);}
+.ct .val{font-family:var(--serif-text);font-size:1.2rem;margin-top:6px;color:var(--ink);font-weight:600;}
+.hours{margin-top:28px;border:1px solid var(--line);border-radius:10px;padding:28px 32px;display:flex;flex-wrap:wrap;gap:16px 64px;align-items:center;}
+.hours .h-lbl{font-size:.7rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--text-faint);}
+.hours .h-row{display:flex;gap:14px;align-items:baseline;}
+.hours .d{font-weight:600;font-size:.96rem;}
+.hours .t{color:var(--text-muted);font-size:.93rem;}
+
+/* ── Footer ── */
+footer{padding:60px 0;border-top:1px solid var(--line);}
+.foot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;}
+.foot .brand{font-size:1.2rem;}
+.foot p{font-size:.8rem;color:var(--text-faint);}
+
+/* ── Animations ── */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s var(--ease),transform .7s var(--ease);}
+.reveal.in{opacity:1;transform:none;}
+
+/* ── Responsive ── */
+@media(max-width:920px){
+  .hero-grid{grid-template-columns:1fr;gap:48px;}
+  .hero-figure{max-width:460px;margin:0 auto;}
+  .about{grid-template-columns:1fr;gap:44px;}
+  .about-fig{max-width:400px;margin:0 auto;}
+  .book-panel{grid-template-columns:1fr;gap:40px;}
+  .gallery{grid-template-columns:repeat(4,1fr);gap:14px;}
+  .shot.wide{grid-column:span 4;}
+  .shot.tall{grid-column:span 2;grid-row:span 2;}
+  .shot.std{grid-column:span 2;}
+  .rev-grid{grid-template-columns:1fr;}
+}
+@media(max-width:640px){
+  .wrap{padding:0 24px;}
+  .menu{display:none;}
+  section{padding:78px 0;}
+  .hero{padding:130px 0 60px;}
+  .ticker{font-size:1rem;gap:8px 32px;padding:18px 0;}
+  .gallery{grid-template-columns:repeat(2,1fr);gap:11px;}
+  .shot.wide,.shot.tall,.shot.std{grid-column:span 2;grid-row:auto;}
+  .shot img{aspect-ratio:4/5!important;}
+  .srv{grid-template-columns:1fr auto;gap:8px 18px;padding:24px 0;}
+  .srv .no{display:none;}
+  .contacts{grid-template-columns:1fr;}
+  .sec-head{margin-bottom:40px;}
+  h2.title{font-size:clamp(1.8rem,4.2vw,2.6rem);}
+  .book-panel{padding:32px;}
+}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a href="#top" class="brand">Тая<small>стиліст</small></a>
+    <ul class="menu">
+      <li><a href="#portfolio">Роботи</a></li>
+      <li><a href="#services">Послуги</a></li>
+      <li><a href="#about">Про мене</a></li>
+      <li><a href="#contacts">Контакти</a></li>
+    </ul>
+    <a href="#booking" class="book-btn">Записатись</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div class="hero-content reveal">
+      <span class="eyebrow">Перукар-стиліст · Львів</span>
+      <h1 class="display hero-name">Тая</h1>
+      <p class="hero-sub">Редакційна естетика. Стрижка, що тримає форму. Колір, що пасує саме вам. Індивідуальний підхід — без шаблонів.</p>
+      <p class="hero-loc">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Jam Studio, вул. Успенська, Львів
+      </p>
+      <div class="hero-cta">
+        <a href="https://t.me/taya_stylist" class="btn btn-fill" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.49 8.22l-1.83 8.62c-.14.61-.5.76-1.01.47l-2.78-2.05-1.34 1.29c-.15.15-.28.27-.57.27l.2-2.83 5.16-4.66c.22-.2-.05-.31-.34-.11l-6.38 4.02-2.75-.86c-.6-.19-.61-.6.13-.89l10.74-4.14c.5-.18.93.12.77.89z"/></svg>
+          Написати в Telegram
+        </a>
+        <a href="#portfolio" class="btn btn-ghost">Подивитись роботи</a>
+      </div>
+    </div>
+    <figure class="hero-figure reveal">
+      <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=900&q=80&auto=format&fit=crop" alt="Стрижка та укладка в Jam Studio">
+      <div class="tag"><b>Jam Studio</b>Львів</div>
+    </figure>
+  </div>
+  <div class="wrap">
+    <div class="ticker reveal">
+      <span>Жіночі стрижки</span><span>Чоловічі стрижки</span><span>Укладки</span><span>Фарбування</span>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="left reveal">
+        <span class="eyebrow">01 — Портфоліо</span>
+        <h2 class="title" style="margin-top:16px">Роботи, які говорять самі за себе</h2>
+      </div>
+      <p class="lede reveal">Кожен образ — це форма обличчя, тип волосся й характер клієнта. Редакційна естетика в дії.</p>
+    </div>
+    <div class="gallery">
+      <figure class="shot tall reveal"><img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=700&q=80&auto=format&fit=crop" alt="Довге волосся, укладка та локони" loading="lazy"><figcaption>Укладка · локони</figcaption></figure>
+      <figure class="shot std reveal"><img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=600&q=80&auto=format&fit=crop" alt="Жіноча стрижка каре" loading="lazy"><figcaption>Каре · класика</figcaption></figure>
+      <figure class="shot std reveal"><img src="https://images.unsplash.com/photo-1457972729786-0411a3b2b626?w=600&q=80&auto=format&fit=crop" alt="Вечірня зачіска, низький пучок" loading="lazy"><figcaption>Пучок · деталь</figcaption></figure>
+      <figure class="shot wide reveal"><img src="https://images.unsplash.com/photo-1600948836101-f9ffda59d250?w=1000&q=80&auto=format&fit=crop" alt="Майстер у роботі — стрижка та фарбування" loading="lazy"><figcaption>За роботою · Jam Studio</figcaption></figure>
+      <figure class="shot std reveal"><img src="https://images.unsplash.com/photo-1621607512214-68297480165e?w=600&q=80&auto=format&fit=crop" alt="Фарбування, теплий тон у тон" loading="lazy"><figcaption>Колір · тон у тон</figcaption></figure>
+      <figure class="shot std reveal"><img src="https://images.unsplash.com/photo-1560869713-7d0a29430803?w=600&q=80&auto=format&fit=crop" alt="Деталь стрижки, текстура волосся" loading="lazy"><figcaption>Текстура · фактура</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="left reveal">
+        <span class="eyebrow">02 — Послуги</span>
+        <h2 class="title" style="margin-top:16px">Що я роблю</h2>
+      </div>
+      <p class="lede reveal">Прозоро, без сюрпризів. Консультація перед кожною послугою, якісні матеріали, чесна рекомендація.</p>
+    </div>
+    <div class="menu-list">
+      <div class="srv reveal">
+        <span class="no">01</span>
+        <div class="body"><h3>Жіноча стрижка</h3><p>Моделювання форми з урахуванням типу волосся й форми обличчя</p></div>
+        <div class="meta"><div class="price">від 500 грн</div><div class="dur">~60 хв</div></div>
+      </div>
+      <div class="srv reveal">
+        <span class="no">02</span>
+        <div class="body"><h3>Чоловіча стрижка</h3><p>Класика, fade, текстурування, виголення</p></div>
+        <div class="meta"><div class="price">від 300 грн</div><div class="dur">~40 хв</div></div>
+      </div>
+      <div class="srv reveal">
+        <span class="no">03</span>
+        <div class="body"><h3>Укладка</h3><p>Повсякденна, вечірня, святкова з вирівнювачем або щипцями</p></div>
+        <div class="meta"><div class="price">від 400 грн</div><div class="dur">~50 хв</div></div>
+      </div>
+      <div class="srv reveal">
+        <span class="no">04</span>
+        <div class="body"><h3>Фарбування</h3><p>Однотонне, мелірування, балаяж, складні техніки</p></div>
+        <div class="meta"><div class="price">від 1500 грн</div><div class="dur">~2–3 год</div></div>
+      </div>
+      <div class="srv reveal">
+        <span class="no">05</span>
+        <div class="body"><h3>Кератин + стрижка</h3><p>Відновлення, спрямування, утримання форми надовго</p></div>
+        <div class="meta"><div class="price">від 2000 грн</div><div class="dur">~1,5 год</div></div>
+      </div>
+    </div>
+    <p class="note">↑ Фінальна вартість залежить від довжини та густоти волосся — уточнюємо на консультації перед роботою.</p>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap about">
+    <figure class="about-fig reveal">
+      <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=700&q=80&auto=format&fit=crop" alt="Тая, перукар-стиліст у роботі">
+    </figure>
+    <div class="about-body reveal">
+      <span class="eyebrow">03 — Про мене</span>
+      <h2 class="title">Привіт, я Тая</h2>
+      <p>Перукар-стиліст у Jam Studio, Львів. Якість, естетика й комфорт — не абстрактні вартості, а те, на чому я фокусуюсь щодня.</p>
+      <p class="soft">Мій підхід простий: слухаю клієнта, аналізую волосся, форму обличчя й образ. Потім пропоную рішення, яке працює саме для вас. Жодних шаблонних стрижок — тільки індивідуальна робота, де кожна деталь важлива.</p>
+      <p class="soft">Чому люди повертаються: я памʼятаю вподобання, даю чесні рекомендації, слухаю зворотний зв'язок. Результат — ви виходите з відчуттям «це саме те».</p>
+      <p class="signature">— Тая</p>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="left reveal">
+        <span class="eyebrow">04 — Відгуки</span>
+        <h2 class="title" style="margin-top:16px">Що кажуть клієнти</h2>
+      </div>
+      <p class="lede reveal">Справжні історії від тих, хто повертається. Це мотивує працювати краще.</p>
+    </div>
+    <div class="rev-grid">
+      <div class="rev reveal"><div class="stars">★★★★★</div><p class="quote">„Найкраща стилістка, яку я зустрічала. Розуміє волосся й справді слухає."</p><div class="who">Анна, Львів</div></div>
+      <div class="rev reveal"><div class="stars">★★★★★</div><p class="quote">„Тепла у спілкуванні й дуже професійна. Рекомендую всім подругам."</p><div class="who">Марія, Львів</div></div>
+      <div class="rev reveal"><div class="stars">★★★★★</div><p class="quote">„Вперше результат, який легко тримати вдома. Дуже дякую!"</p><div class="who">Олена, Львів</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section id="booking">
+  <div class="wrap">
+    <div class="book-panel reveal">
+      <div>
+        <span class="eyebrow">05 — Запис</span>
+        <h2>Оберіть зручний час</h2>
+        <p>Напишіть мені в Telegram, вкажіть послугу й зручний час — я підтверджу запис. Адреса: Jam Studio, вул. Успенська, Львів.</p>
+      </div>
+      <div class="book-slot">
+        <div class="big">Готові записатись?</div>
+        <p>Пишіть у Telegram — відповім за 5 хв</p>
+        <a href="https://t.me/taya_stylist" class="btn btn-fill" target="_blank" rel="noopener">Написати Таї</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTS -->
+<section id="contacts">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="left reveal">
+        <span class="eyebrow">06 — Контакти</span>
+        <h2 class="title" style="margin-top:16px">Звʼязатись зі мною</h2>
+      </div>
+    </div>
+    <div class="contacts">
+      <a class="ct reveal" href="https://instagram.com/taya_stylist" target="_blank" rel="noopener">
+        <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></div>
+        <div class="lbl">Instagram</div>
+        <div class="val">@taya_stylist</div>
+      </a>
+      <a class="ct reveal" href="https://t.me/taya_stylist" target="_blank" rel="noopener">
+        <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.49 8.22l-1.83 8.62c-.14.61-.5.76-1.01.47l-2.78-2.05-1.34 1.29c-.15.15-.28.27-.57.27l.2-2.83 5.16-4.66c.22-.2-.05-.31-.34-.11l-6.38 4.02-2.75-.86c-.6-.19-.61-.6.13-.89l10.74-4.14c.5-.18.93.12.77.89z"/></svg></div>
+        <div class="lbl">Telegram</div>
+        <div class="val">@taya_stylist</div>
+      </a>
+      <a class="ct reveal" href="https://www.google.com/maps/search/Jam+Studio+Lviv" target="_blank" rel="noopener">
+        <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div class="lbl">Студія</div>
+        <div class="val">Jam Studio, Львів</div>
+      </a>
+    </div>
+    <div class="hours reveal">
+      <span class="h-lbl">Графік роботи</span>
+      <div class="h-row"><span class="d">Вт–Пт</span><span class="t">10:00 – 18:00</span></div>
+      <div class="h-row"><span class="d">Сб–Нд</span><span class="t">10:00 – 16:00</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <a href="#top" class="brand">Тая<small>стиліст</small></a>
+    <p>© 2026 · Jam Studio, Львів · Редакційна естетика в дії</p>
+  </div>
+</footer>
+
+<script>
+// Sticky nav background on scroll
+const hdr=document.getElementById('hdr');
+const onScroll=()=>hdr.classList.toggle('scrolled',window.scrollY>20);
+onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+
+// Reveal on scroll
+const io=new IntersectionObserver((es)=>{
+  es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+},{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach((el,i)=>{
+  el.style.transitionDelay=(Math.min(i%4,3)*60)+'ms';
+  io.observe(el);
+});
+
+// Auto-fill Telegram link
+document.querySelectorAll('[href*="t.me"]').forEach(el=>{
+  if(el.href.endsWith('/')){
+    el.href='https://t.me/taya_stylist';
+  }
+});
+</script>
+</body>
+</html>
