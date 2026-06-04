@@ -68,7 +68,7 @@ h3{font-family:var(--serif-text);font-weight:600;font-size:1.55rem;letter-spacin
 header{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .3s,border-color .3s;}
 header.scrolled{background:rgba(250,247,242,.92);backdrop-filter:saturate(130%) blur(12px);border-bottom:1px solid var(--line);}
 .nav{display:flex;align-items:center;justify-content:space-between;height:72px;}
-.brand{font-family:var(--serif-display);font-size:1.4rem;font-weight:400;letter-spacing:-.01em;text-decoration:none;display:flex;align-items:baseline;gap:8px;}
+.brand{font-family:var(--serif-display);font-size:1.4rem;font-weight:400;letter-spacing:-.01em;text-decoration:none;display:flex;align-items:center;gap:10px;}
 .brand small{font-family:var(--sans);font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--text-faint);font-weight:600;}
 .menu{display:flex;gap:34px;list-style:none;}
 .menu a{font-size:.82rem;font-weight:500;color:var(--text-muted);text-decoration:none;position:relative;padding:4px 0;transition:color .2s;}
@@ -253,9 +253,14 @@ footer{padding:60px 0;border-top:1px solid var(--line);}
 }
 
 /* ── Logo ── */
-.logo-mark{display:block;height:auto;flex:none;}
-.logo-mark-sm{width:40px;}
-.logo-full{display:block;width:clamp(200px,26vw,280px);height:auto;margin:0 auto;}
+.brand-mark{display:block;height:34px;width:auto;flex:none;}
+.brand-name{font-family:var(--serif-display);font-weight:400;font-size:1.4rem;letter-spacing:-.01em;color:var(--ink);line-height:1;}
+.hero-logo{margin-bottom:42px;}
+.logo-full{display:block;width:clamp(280px,35vw,400px);height:auto;margin:0 auto;}
+.hero-mark{display:block;height:clamp(96px,12vw,128px);width:auto;flex:none;}
+.wordmark{display:flex;flex-direction:column;}
+.wm-name{font-family:var(--serif-display);font-weight:400;font-size:clamp(3rem,7vw,4.4rem);line-height:.92;letter-spacing:-.015em;color:var(--ink);}
+.wm-sub{font-family:var(--sans);font-size:.78rem;letter-spacing:.4em;text-transform:uppercase;color:var(--text-muted);margin-top:12px;padding-left:3px;}
 </style>
 </head>
 <body>
@@ -263,7 +268,8 @@ footer{padding:60px 0;border-top:1px solid var(--line);}
 <header id="hdr">
   <div class="wrap nav">
     <a href="#top" class="brand">
-      <img class="logo-mark logo-mark-sm" src="logo-mark.png" alt="Тая — Hair Stylist" width="40">
+      <img class="brand-mark" src="logo-mark.png" alt="" aria-hidden="true">
+      <span class="brand-name">Тая</span>
     </a>
     <ul class="menu">
       <li><a href="#portfolio">Роботи</a></li>
@@ -280,7 +286,7 @@ footer{padding:60px 0;border-top:1px solid var(--line);}
   <div class="wrap hero-grid">
     <div class="hero-content reveal">
       <div class="hero-logo">
-        <img class="logo-full" src="logo-full.png" alt="Тая — Hair Stylist" width="240">
+        <img class="logo-full" src="logo-full.png" alt="Тая — Hair Stylist" width="340">
       </div>
       <h1 class="visually-hidden">Тая — перукар-стиліст, Львів</h1>
       <span class="eyebrow">Перукар-стиліст · Львів</span>
@@ -461,7 +467,8 @@ footer{padding:60px 0;border-top:1px solid var(--line);}
 <footer>
   <div class="wrap foot">
     <a href="#top" class="brand">
-      <img class="logo-mark logo-mark-sm" src="logo-mark.png" alt="Тая — Hair Stylist" width="40">
+      <img class="brand-mark" src="logo-mark.png" alt="" aria-hidden="true">
+      <span class="brand-name">Тая</span>
     </a>
     <p>© 2026 · Jam Studio, Львів · Редакційна естетика в дії</p>
   </div>
